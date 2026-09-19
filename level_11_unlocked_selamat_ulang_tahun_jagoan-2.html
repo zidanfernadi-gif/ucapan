@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Level 11 Unlocked! 🎉 Selamat Ultah Tsaqif Al-Mujaddid!</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  
+  <!-- Quirky & Playful Fonts: Fredoka, Bungee, and Amiri for Islamic Prayers -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,700;1,400&family=Bungee&family=Fredoka:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            comic: ['Bungee', 'cursive'],
+            chunky: ['Fredoka', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            arabic: ['Amiri', 'serif']
+          },
+          colors: {
+            popYellow: '#FFE600',
+            popPink: '#FF5C93',
+            popCyan: '#00E5FF',
+            popGreen: '#23D160',
+            popPurple: '#7B2CBF',
+            popOrange: '#FF7A00',
+            paperBg: '#FFFDF5',
+            darkStroke: '#18181B'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Neo-brutalist / Comic Pop Tactile UI Elements */
+    :root {
+      --hard-shadow: 4px 4px 0px #18181b;
+      --hard-shadow-lg: 6px 6px 0px #18181b;
+      --hard-shadow-xl: 8px 8px 0px #18181b;
+    }
+
+    body {
+      background-color: #FFF8E7;
+      background-image: radial-gradient(#18181b 1px, transparent 1px);
+      background-size: 20px 20px;
+      color: #18181b;
+      font-family: 'Fredoka', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+      overflow-x: hidden;
+      touch-action: manipulation;
+    }
+
+    /* Chunky Hard Border & Shadow Utility */
+    .comic-box {
+      border: 3.5px solid #18181b;
+      box-shadow: var(--hard-shadow-lg);
+    }
+    .comic-box-sm {
+      border: 2.5px solid #18181b;
+      box-shadow: var(--hard-shadow);
+    }
+    .comic-btn {
+      border: 3px solid #18181b;
+      box-shadow: var(--hard-shadow);
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .comic-btn:active {
+      transform: translate(3px, 3px);
+      box-shadow: 1px 1px 0px #18181b;
+    }
+
+    /* Wiggle Animation for stickers */
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(-3deg); }
+      50% { transform: rotate(3deg); }
+    }
+    .animate-wiggle {
+      animation: wiggle 2.5s ease-in-out infinite;
+    }
+
+    /* Flame Flickering */
+    @keyframes flameFlicker {
+      0%, 100% { transform: scale(1) skewX(1deg); filter: drop-shadow(0 0 8px #FFD700); }
+      50% { transform: scale(1.2) skewX(-2deg); filter: drop-shadow(0 0 14px #FF7A00); }
+    }
+    .flame-active {
+      animation: flameFlicker 0.4s infinite alternate;
+    }
+
+    /* Card flip for RPG cards */
+    .rpg-card-inner {
+      transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transform-style: preserve-3d;
+    }
+    .rpg-card.is-flipped .rpg-card-inner {
+      transform: rotateY(180deg);
+    }
+    .card-front, .card-back {
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    .card-back {
+      transform: rotateY(180deg);
+    }
+
+    /* Comic dotted badge background */
+    .dot-bg-pink {
+      background-color: #FF5C93;
+      background-image: radial-gradient(#ffffff 2px, transparent 2px);
+      background-size: 10px 10px;
+    }
+    .dot-bg-cyan {
+      background-color: #00E5FF;
+      background-image: radial-gradient(#18181b 1.5px, transparent 1.5px);
+      background-size: 8px 8px;
+    }
+  </style>
+</head>
+<body class="selection:bg-popPink selection:text-white pb-20">
+
+  <!-- Floating Sticky Nav with Sound & Haptic Trigger -->
+  <nav class="sticky top-2 z-50 max-w-2xl mx-auto px-3">
+    <div class="bg-popYellow comic-box-sm rounded-2xl px-3.5 py-2.5 flex items-center justify-between">
+      <div class="flex items-center space-x-2">
+        <span class="text-2xl animate-bounce">⚡</span>
+        <div>
+          <span class="font-comic text-sm tracking-wide text-darkStroke block leading-none">TSAQIF'S QUEST 11</span>
+          <span class="text-[10px] font-bold text-darkStroke/80">TSAQIF AL-MUJADDID • 18 SEPT</span>
+        </div>
+      </div>
+      <div class="flex items-center space-x-2">
+        <button id="soundToggleBtn" onclick="toggleAudio()" class="comic-btn bg-white px-2.5 py-1 rounded-xl text-xs font-bold flex items-center gap-1">
+          <span id="soundIcon">🔊</span>
+          <span id="soundLabel" class="hidden sm:inline">SFX: ON</span>
+        </button>
+        <button onclick="popBigConfetti(true)" class="comic-btn bg-popPink text-white px-3 py-1 rounded-xl text-xs font-black uppercase">
+          🎉 BOOM!
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="max-w-2xl mx-auto px-4 pt-4 space-y-10">
+
+    <!-- HERO SECTION: Comic Book Gamer Style -->
+    <section class="text-center pt-2 relative">
+      <!-- Floating stickers -->
+      <div class="absolute -top-1 -left-2 rotate-[-12deg] bg-popCyan comic-box-sm px-3 py-1 rounded-full text-[11px] font-comic uppercase tracking-wider hidden sm:block">
+        ⭐ PLAYER: DEVIN
+      </div>
+      <div class="absolute top-2 -right-3 rotate-[10deg] bg-popGreen comic-box-sm px-3 py-1 rounded-full text-[11px] font-comic uppercase tracking-wider hidden sm:block">
+        🔥 LEVEL 11 PRO!
+      </div>
+
+      <div class="inline-block bg-white comic-box-sm px-4 py-1.5 rounded-2xl rotate-[-2deg] mb-3">
+        <p class="font-comic text-xs sm:text-sm text-popPurple uppercase tracking-wider">
+          🎂 BIRTHDAY QUEST: 18 SEPTEMBER 🎂
+        </p>
+      </div>
+
+      <h1 class="font-comic text-3xl sm:text-5xl md:text-6xl text-darkStroke leading-tight tracking-tight uppercase drop-shadow-[4px_4px_0px_#FFE600]">
+        DEVINSON HAYDEN<br>
+        <span class="text-popPink">LEVEL 11 UNLOCKED!</span>
+      </h1>
+
+      <p class="font-chunky font-extrabold text-base sm:text-lg text-slate-800 mt-2 px-2">
+        Barakallahu fii umrik, jagoan kesayangan <span class="bg-popYellow px-2 py-0.5 rounded-md border-2 border-darkStroke">Devinson Hayden!</span> 🚀 Kemarin 18 September resmi menginjak usia 11 tahun. Semoga makin soleh, ganteng, cerdas, dan selalu jadi kebanggaan keluarga!
+      </p>
+
+      <!-- Player Stats Bar (Playful RPG Stats for Devinson) -->
+      <div class="mt-5 bg-white comic-box rounded-3xl p-4 text-left">
+        <div class="flex items-center justify-between pb-3 border-b-2 border-darkStroke">
+          <div class="flex items-center space-x-2.5">
+            <span class="text-3xl sm:text-4xl p-1 bg-amber-100 rounded-2xl border-2 border-darkStroke">🎮</span>
+            <div>
+              <h2 class="font-comic text-sm sm:text-base text-darkStroke leading-none">DEVINSON HAYDEN (DEVIN)</h2>
+              <span class="text-xs font-bold text-popOrange">Gelar: Kapten Jagoan Umur 11 Tahun</span>
+            </div>
+          </div>
+          <div class="bg-popYellow px-2.5 py-1 rounded-lg border-2 border-darkStroke text-[10px] font-comic text-right">
+            EXP: MAX 🔥
+          </div>
+        </div>
+
+        <!-- Stat meters -->
+        <div class="grid grid-cols-2 gap-2.5 mt-3 text-xs font-bold">
+          <div class="bg-amber-100/70 p-2 rounded-xl border-2 border-darkStroke flex items-center justify-between">
+            <span>😎 Tingkat Ganteng:</span>
+            <span class="font-comic text-popOrange">9999+</span>
+          </div>
+          <div class="bg-emerald-100/70 p-2 rounded-xl border-2 border-darkStroke flex items-center justify-between">
+            <span>🤲 Anak Sholeh:</span>
+            <span class="font-comic text-popGreen">MAX ⭐</span>
+          </div>
+          <div class="bg-sky-100/70 p-2 rounded-xl border-2 border-darkStroke flex items-center justify-between">
+            <span>🧠 Otak Encer:</span>
+            <span class="font-comic text-popCyan">SUPER HIGH</span>
+          </div>
+          <div class="bg-pink-100/70 p-2 rounded-xl border-2 border-darkStroke flex items-center justify-between">
+            <span>⚡ Energi Bermain:</span>
+            <span class="font-comic text-popPink">UNLIMITED</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE 11 CANDLES CAKE SECTION -->
+    <section class="bg-white comic-box rounded-3xl p-5 text-center relative overflow-hidden">
+      <div class="absolute -right-6 -bottom-6 w-20 h-20 bg-popYellow rounded-full border-2 border-darkStroke -z-0 opacity-40"></div>
+      
+      <div class="relative z-10">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-popCyan comic-box-sm rounded-full text-xs font-comic text-darkStroke mb-2">
+          <span>🕯️</span> KUE ULTAH DEVINSON HAYDEN
+        </div>
+        <h2 class="font-comic text-2xl sm:text-3xl text-darkStroke">
+          TIUP 11 LILIN UNTUK DEVIN!
+        </h2>
+        <p class="text-xs sm:text-sm font-chunky font-bold text-slate-600 max-w-sm mx-auto">
+          Ayo Hayden tiup lilinnya satu per satu dengan jari, atau tekan tombol tiup semua!
+        </p>
+
+        <!-- Cake Simulation Area -->
+        <div class="mt-10 mb-6 flex flex-col items-center justify-center">
+          
+          <!-- 11 Candles Flex Container -->
+          <div id="candleWickContainer" class="flex items-end justify-center gap-1.5 sm:gap-2 mb-[-6px] z-20">
+            <!-- Dynamically populated 11 candles -->
+          </div>
+
+          <!-- Cake Layer 1 (Icing & Number) -->
+          <div class="w-64 sm:w-80 h-16 bg-popPink rounded-t-3xl border-4 border-darkStroke relative flex items-center justify-center shadow-inner">
+            <div class="absolute top-2 w-full flex justify-around px-2 text-white/50 text-xs">
+              <span>🍓</span><span>⭐</span><span>🍓</span><span>⭐</span><span>🍓</span>
+            </div>
+            <div class="bg-white border-2 border-darkStroke px-4 py-1 rounded-full font-comic text-xs text-darkStroke rotate-[-1deg] shadow-sm">
+              ✨ DEVINSON HAYDEN 11TH ✨
+            </div>
+          </div>
+
+          <!-- Cake Layer 2 (Chocolate Cream) -->
+          <div class="w-72 sm:w-96 h-20 bg-[#78350F] rounded-2xl border-4 border-darkStroke relative flex items-center justify-center">
+            <!-- White frosting wave -->
+            <div class="absolute top-0 w-full flex justify-around text-white text-base">
+              <span>☁️</span><span>☁️</span><span>☁️</span><span>☁️</span><span>☁️</span><span>☁️</span>
+            </div>
+            <span class="font-comic text-popYellow text-sm sm:text-base tracking-widest uppercase mt-4">
+              HAPPY 11TH BIRTHDAY DEVIN!
+            </span>
+          </div>
+
+          <!-- Cake Base Plate -->
+          <div class="w-80 sm:w-[410px] h-5 bg-slate-200 rounded-full border-4 border-darkStroke shadow-md -mt-1"></div>
+        </div>
+
+        <!-- Buttons to Blow or Relight -->
+        <div class="flex flex-wrap items-center justify-center gap-3 relative z-20">
+          <button onclick="blowAllCandles()" class="comic-btn bg-popCyan text-darkStroke px-4 py-2.5 rounded-2xl font-comic text-xs sm:text-sm flex items-center gap-1.5">
+            <span>💨</span> TIUP SEMUA BARENGAN!
+          </button>
+          <button onclick="relightCandles()" class="comic-btn bg-white text-darkStroke px-3.5 py-2.5 rounded-2xl font-comic text-xs sm:text-sm flex items-center gap-1.5">
+            <span>🔥</span> NYALAIN LAGI
+          </button>
+        </div>
+
+        <div id="candleStatus" class="mt-3 font-comic text-xs text-popPurple">
+          11 LILIN MENYALA • TAP LILINNYA DEVIN!
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE 11 CANDLES CAKE SECTION -->
+    <section class="bg-white comic-box rounded-3xl p-5 text-center relative overflow-hidden">
+      <div class="absolute -right-6 -bottom-6 w-20 h-20 bg-popYellow rounded-full border-2 border-darkStroke -z-0 opacity-40"></div>
+      
+      <div class="relative z-10">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-popCyan comic-box-sm rounded-full text-xs font-comic text-darkStroke mb-2">
+          <span>🕯️</span> MISI TIUP LILIN
+        </div>
+        <h2 class="font-comic text-2xl sm:text-3xl text-darkStroke">
+          TIUP 11 LILINNYA!
+        </h2>
+        <p class="text-xs sm:text-sm font-chunky font-bold text-slate-600 max-w-sm mx-auto">
+          Tap lilin satu per satu buat niup apinya, atau pencet tombol hembus kencang!
+        </p>
+
+        <!-- Cake Simulation Area -->
+        <div class="mt-10 mb-6 flex flex-col items-center justify-center">
+          
+          <!-- 11 Candles Flex Container -->
+          <div id="candleWickContainer" class="flex items-end justify-center gap-1.5 sm:gap-2 mb-[-6px] z-20">
+            <!-- Dynamically populated 11 candles -->
+          </div>
+
+          <!-- Cake Layer 1 (Icing & Number) -->
+          <div class="w-64 sm:w-80 h-16 bg-popPink rounded-t-3xl border-4 border-darkStroke relative flex items-center justify-center shadow-inner">
+            <div class="absolute top-2 w-full flex justify-around px-2 text-white/50 text-xs">
+              <span>🍓</span><span>⭐</span><span>🍓</span><span>⭐</span><span>🍓</span>
+            </div>
+            <div class="bg-white border-2 border-darkStroke px-4 py-1 rounded-full font-comic text-xs text-darkStroke rotate-[-1deg] shadow-sm">
+              ✨ 11 TAHUN MAKIN JAGO ✨
+            </div>
+          </div>
+
+          <!-- Cake Layer 2 (Chocolate Cream) -->
+          <div class="w-72 sm:w-96 h-20 bg-[#78350F] rounded-2xl border-4 border-darkStroke relative flex items-center justify-center">
+            <!-- White frosting wave -->
+            <div class="absolute top-0 w-full flex justify-around text-white text-base">
+              <span>☁️</span><span>☁️</span><span>☁️</span><span>☁️</span><span>☁️</span><span>☁️</span>
+            </div>
+            <span class="font-comic text-popYellow text-sm sm:text-base tracking-widest uppercase mt-4">
+              LEVEL 11 CHAMPION
+            </span>
+          </div>
+
+          <!-- Cake Base Plate -->
+          <div class="w-80 sm:w-[410px] h-5 bg-slate-200 rounded-full border-4 border-darkStroke shadow-md -mt-1"></div>
+        </div>
+
+        <!-- Buttons to Blow or Relight -->
+        <div class="flex flex-wrap items-center justify-center gap-3 relative z-20">
+          <button onclick="blowAllCandles()" class="comic-btn bg-popCyan text-darkStroke px-4 py-2.5 rounded-2xl font-comic text-xs sm:text-sm flex items-center gap-1.5">
+            <span>💨</span> TIUP SEMUA BARENGAN!
+          </button>
+          <button onclick="relightCandles()" class="comic-btn bg-white text-darkStroke px-3.5 py-2.5 rounded-2xl font-comic text-xs sm:text-sm flex items-center gap-1.5">
+            <span>🔥</span> NYALAIN LAGI
+          </button>
+        </div>
+
+        <div id="candleStatus" class="mt-3 font-comic text-xs text-popPurple">
+          11 LILIN MENYALA • TAP LILINNYA!
+        </div>
+      </div>
+    </section>
+
+    <!-- MINI-GAME: TAP BALLOON & SURPRISE (High tactile touch action) -->
+    <section class="bg-popYellow comic-box rounded-3xl p-5 relative">
+      <div class="flex items-center justify-between mb-3">
+        <div>
+          <span class="bg-white px-2.5 py-0.5 rounded-lg border-2 border-darkStroke text-[10px] font-comic text-darkStroke">
+            🎮 MINI GAME SANTUY
+          </span>
+          <h2 class="font-comic text-xl sm:text-2xl text-darkStroke mt-1 leading-none">
+            MISI BALON DEVINSON!
+          </h2>
+        </div>
+        <div class="text-right">
+          <div class="text-[10px] font-bold text-darkStroke uppercase">Skor Combo</div>
+          <div id="gameScoreText" class="font-comic text-2xl text-popPink leading-none">0 PTS</div>
+        </div>
+      </div>
+
+      <p class="text-xs font-bold text-darkStroke/80 mb-3">
+        Ayo Devin sentuh balon-balon kado sebelum melayang ke angkasa! Raih 110 poin buat menang!
+      </p>
+
+      <!-- Game Stage -->
+      <div id="gameBox" class="relative w-full h-72 bg-white rounded-2xl border-4 border-darkStroke overflow-hidden touch-none select-none">
+        <!-- Start Game Button Overlay -->
+        <div id="gameOverlay" class="absolute inset-0 bg-paperBg/95 z-30 flex flex-col items-center justify-center p-4 text-center">
+          <div class="text-5xl animate-bounce mb-2">🎈</div>
+          <h3 class="font-comic text-xl text-darkStroke">TANGKAP BALON 11 DEVIN!</h3>
+          <p class="text-xs font-bold text-slate-600 max-w-xs mt-1 mb-4">
+            Gunakan jarimu untuk meletuskan balon warna-warni secepat mungkin!
+          </p>
+          <button onclick="startBalloonGame()" class="comic-btn bg-popGreen text-white px-6 py-3 rounded-2xl font-comic text-sm sm:text-base">
+            MULAI SEKARANG DEVIN! ⚡
+          </button>
+        </div>
+
+        <!-- Game area where balloons will spawn -->
+        <div id="balloonArea" class="w-full h-full relative"></div>
+      </div>
+
+      <!-- Live timer / progress -->
+      <div class="mt-2 flex items-center justify-between text-xs font-bold">
+        <span id="gameTimerText">Waktu: 20s</span>
+        <span class="text-popPurple">Target: 110 Poin</span>
+      </div>
+    </section>
+
+    <!-- MYSTERY GACHA BOXES -->
+    <section class="bg-white comic-box rounded-3xl p-5 text-center">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-popPink text-white comic-box-sm rounded-full text-xs font-comic mb-2">
+        <span>🎁</span> KOTAK MYSTERY UNTUK DEVIN
+      </div>
+      <h2 class="font-comic text-2xl sm:text-3xl text-darkStroke">
+        KOTAK HADIAH & REWARD
+      </h2>
+      <p class="text-xs sm:text-sm font-chunky font-bold text-slate-600 max-w-sm mx-auto mb-5">
+        Pilih salah satu peti misterius di bawah buat buka bonus & kupon spesial untuk Devinson Hayden!
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <!-- Box 1 -->
+        <div id="gachaBox1" onclick="openGacha(1)" class="comic-btn bg-amber-100 rounded-2xl p-4 cursor-pointer text-center relative overflow-hidden group">
+          <div id="gachaIcon1" class="text-5xl my-2 transition-transform group-hover:scale-110">📦</div>
+          <div id="gachaLabel1" class="font-comic text-xs text-darkStroke">PETI EMAS #1</div>
+          <div id="gachaResult1" class="hidden text-xs font-bold text-popPurple mt-2"></div>
+        </div>
+
+        <!-- Box 2 -->
+        <div id="gachaBox2" onclick="openGacha(2)" class="comic-btn bg-sky-100 rounded-2xl p-4 cursor-pointer text-center relative overflow-hidden group">
+          <div id="gachaIcon2" class="text-5xl my-2 transition-transform group-hover:scale-110">🎁</div>
+          <div id="gachaLabel2" class="font-comic text-xs text-darkStroke">PETI DIAMOND #2</div>
+          <div id="gachaResult2" class="hidden text-xs font-bold text-popCyan mt-2"></div>
+        </div>
+
+        <!-- Box 3 -->
+        <div id="gachaBox3" onclick="openGacha(3)" class="comic-btn bg-pink-100 rounded-2xl p-4 cursor-pointer text-center relative overflow-hidden group">
+          <div id="gachaIcon3" class="text-5xl my-2 transition-transform group-hover:scale-110">🏆</div>
+          <div id="gachaLabel3" class="font-comic text-xs text-darkStroke">PETI MYTHIC #3</div>
+          <div id="gachaResult3" class="hidden text-xs font-bold text-popPink mt-2"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ISLAMIC PRAYERS (RPG COLLECTIBLE CARDS DEDICATED TO DEVINSON HAYDEN) -->
+    <section class="space-y-4">
+      <div class="text-center space-y-1">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-popGreen text-white comic-box-sm rounded-full text-xs font-comic">
+          <span>🌙</span> DOA & HARAPAN MUSLIMAH
+        </div>
+        <h2 class="font-comic text-2xl sm:text-3xl text-darkStroke">
+          DOA UNTUK DEVINSON HAYDEN
+        </h2>
+        <p class="text-xs sm:text-sm font-chunky font-bold text-slate-700 max-w-md mx-auto">
+          Setiap kartu RPG doa ini dipanjatkan khusus penuh kasih sayang untuk ananda <b>Devinson Hayden</b>. Ketuk kartunya untuk melihat artinya!
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        
+        <!-- CARD 1: Doa Anak Sholeh (Doa Nabi Ibrahim) -->
+        <div class="rpg-card h-64 cursor-pointer select-none" onclick="flipPrayerCard(this)">
+          <div class="rpg-card-inner relative w-full h-full">
+            <!-- Front -->
+            <div class="card-front absolute inset-0 bg-white comic-box rounded-2xl p-4 flex flex-col justify-between">
+              <div class="flex items-center justify-between">
+                <span class="bg-popGreen text-white px-2 py-0.5 rounded-lg border-2 border-darkStroke text-[10px] font-comic">
+                  DOA #01 • DEVIN SHOLEH
+                </span>
+                <span class="text-sm font-comic text-popOrange">LEGENDARY ⭐</span>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl mb-1">🤲</div>
+                <h3 class="font-comic text-base text-darkStroke">DEVIN JADI ANAK SHOLEH</h3>
+                <p class="font-arabic text-xl text-emerald-800 font-bold mt-2" dir="rtl">
+                  رَبِّ هَبْ لِي مِنَ الصَّالِحِينَ
+                </p>
+                <p class="text-[11px] font-bold text-slate-500 italic mt-1">
+                  "Rabbi hablii minash-shaalihiin"
+                </p>
+              </div>
+              <div class="text-center text-[10px] font-comic text-popGreen border-t-2 border-darkStroke/10 pt-2">
+                👉 TAP UNTUK BACA DOA BUAT DEVIN
+              </div>
+            </div>
+            <!-- Back -->
+            <div class="card-back absolute inset-0 bg-emerald-100 comic-box rounded-2xl p-4 flex flex-col justify-between text-left">
+              <div class="text-[11px] font-comic text-emerald-900 uppercase">DOA TANTE & OM UNTUK DEVIN:</div>
+              <p class="text-xs font-bold text-slate-800 leading-relaxed">
+                <b>"Ya Tuhanku, anugerahkanlah kepadaku (anak) yang termasuk orang-orang yang saleh."</b> (QS. As-Saffat: 100)
+                <br><br>
+                Semoga <b>Devinson Hayden</b> di usia ke-11 ini semakin rajin mendirikan sholat 5 waktu, gemar berbuat kebajikan, lembut hatinya, dan menjadi tabungan pahala jariyah serta penyejuk hati orang tuanya.
+              </p>
+              <div class="text-[10px] font-comic text-emerald-700">Aamiin Ya Rabbal 'Alamin 🤲</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 2: Doa Tambah Ilmu & Kepintaran -->
+        <div class="rpg-card h-64 cursor-pointer select-none" onclick="flipPrayerCard(this)">
+          <div class="rpg-card-inner relative w-full h-full">
+            <!-- Front -->
+            <div class="card-front absolute inset-0 bg-white comic-box rounded-2xl p-4 flex flex-col justify-between">
+              <div class="flex items-center justify-between">
+                <span class="bg-popCyan text-darkStroke px-2 py-0.5 rounded-lg border-2 border-darkStroke text-[10px] font-comic">
+                  DOA #02 • KECERDASAN
+                </span>
+                <span class="text-sm font-comic text-popPurple">SUPER BRAIN 🧠</span>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl mb-1">📚</div>
+                <h3 class="font-comic text-base text-darkStroke">ILMU & KECERDASAN DEVIN</h3>
+                <p class="font-arabic text-xl text-sky-800 font-bold mt-2" dir="rtl">
+                  رَبِّ زِدْنِي عِلْمًا وَارْزُقْنِي فَهْمًا
+                </p>
+                <p class="text-[11px] font-bold text-slate-500 italic mt-1">
+                  "Rabbi zidnii 'ilman warzuqnii fahman"
+                </p>
+              </div>
+              <div class="text-center text-[10px] font-comic text-popCyan border-t-2 border-darkStroke/10 pt-2">
+                👉 TAP UNTUK BACA DOA BUAT DEVIN
+              </div>
+            </div>
+            <!-- Back -->
+            <div class="card-back absolute inset-0 bg-sky-100 comic-box rounded-2xl p-4 flex flex-col justify-between text-left">
+              <div class="text-[11px] font-comic text-sky-900 uppercase">DOA KECERDASAN UNTUK HAYDEN:</div>
+              <p class="text-xs font-bold text-slate-800 leading-relaxed">
+                <b>"Ya Tuhanku, tambahkanlah ilmuku dan karuniakanlah kepadaku kepahaman yang baik."</b>
+                <br><br>
+                Semoga <b>Devinson Hayden</b> dimudahkan dalam menyerap pelajaran sekolah, otaknya selalu cemerlang, kreatif, suka belajar hal baru, dan ilmunya selalu membawa manfaat bagi orang lain.
+              </p>
+              <div class="text-[10px] font-comic text-sky-700">Aamiin Ya Mujibas Sa'ilin 🤲</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 3: Doa Bakti Kedua Orang Tua -->
+        <div class="rpg-card h-64 cursor-pointer select-none" onclick="flipPrayerCard(this)">
+          <div class="rpg-card-inner relative w-full h-full">
+            <!-- Front -->
+            <div class="card-front absolute inset-0 bg-white comic-box rounded-2xl p-4 flex flex-col justify-between">
+              <div class="flex items-center justify-between">
+                <span class="bg-popOrange text-white px-2 py-0.5 rounded-lg border-2 border-darkStroke text-[10px] font-comic">
+                  DOA #03 • BERBAKTI
+                </span>
+                <span class="text-sm font-comic text-popPink">ANAK BERBAKTI 🤍</span>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl mb-1">🏡</div>
+                <h3 class="font-comic text-base text-darkStroke">BAKTI KEPADA ORANG TUA</h3>
+                <p class="font-arabic text-lg text-amber-900 font-bold mt-2" dir="rtl">
+                  رَبِّ اغْفِرْ لِي وَلِوَالِدَيَّ وَارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا
+                </p>
+                <p class="text-[11px] font-bold text-slate-500 italic mt-1">
+                  "Rabbighfir lii waliwaalidayya warhamhumaa..."
+                </p>
+              </div>
+              <div class="text-center text-[10px] font-comic text-popOrange border-t-2 border-darkStroke/10 pt-2">
+                👉 TAP UNTUK BACA DOA BUAT DEVIN
+              </div>
+            </div>
+            <!-- Back -->
+            <div class="card-back absolute inset-0 bg-amber-100 comic-box rounded-2xl p-4 flex flex-col justify-between text-left">
+              <div class="text-[11px] font-comic text-amber-900 uppercase">HARAPAN TANTE/OM:</div>
+              <p class="text-xs font-bold text-slate-800 leading-relaxed">
+                <b>"Wahai Tuhanku, ampunilah aku dan kedua orang tuaku, dan kasihanilah mereka sebagaimana mereka merawatku di waktu kecil."</b>
+                <br><br>
+                Semoga <b>Devin</b> senantiasa menjadi anak yang berbakti, tutur katanya santun, mendengarkan nasihat ayah bunda, dan selalu membawa kebahagiaan serta senyuman di rumah.
+              </p>
+              <div class="text-[10px] font-comic text-amber-700">Aamiin Allahumma Aamiin 🤲</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 4: Doa Afiyah & Keselamatan -->
+        <div class="rpg-card h-64 cursor-pointer select-none" onclick="flipPrayerCard(this)">
+          <div class="rpg-card-inner relative w-full h-full">
+            <!-- Front -->
+            <div class="card-front absolute inset-0 bg-white comic-box rounded-2xl p-4 flex flex-col justify-between">
+              <div class="flex items-center justify-between">
+                <span class="bg-popPurple text-white px-2 py-0.5 rounded-lg border-2 border-darkStroke text-[10px] font-comic">
+                  DOA #04 • PERLINDUNGAN
+                </span>
+                <span class="text-sm font-comic text-popGreen">SHIELD & HEALTH 🛡️</span>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl mb-1">💪</div>
+                <h3 class="font-comic text-base text-darkStroke">SEHAT & DALAM LINDUNGAN</h3>
+                <p class="font-arabic text-xl text-purple-900 font-bold mt-2" dir="rtl">
+                  اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَافِيَةَ
+                </p>
+                <p class="text-[11px] font-bold text-slate-500 italic mt-1">
+                  "Allahumma inni as-alukal 'aafiyah"
+                </p>
+              </div>
+              <div class="text-center text-[10px] font-comic text-popPurple border-t-2 border-darkStroke/10 pt-2">
+                👉 TAP UNTUK BACA DOA BUAT DEVIN
+              </div>
+            </div>
+            <!-- Back -->
+            <div class="card-back absolute inset-0 bg-purple-100 comic-box rounded-2xl p-4 flex flex-col justify-between text-left">
+              <div class="text-[11px] font-comic text-purple-900 uppercase">PERLINDUNGAN DEVIN:</div>
+              <p class="text-xs font-bold text-slate-800 leading-relaxed">
+                <b>"Ya Allah, sesungguhnya aku memohon kepada-Mu kesehatan dan keselamatan afiat di dunia dan akhirat."</b>
+                <br><br>
+                Semoga <b>Devinson Hayden</b> selalu diberikan tubuh yang sehat bugar, dilindungi dari segala marabahaya, diberikan umur yang penuh barakah, serta dijauhkan dari hal-hal buruk.
+              </p>
+              <div class="text-[10px] font-comic text-purple-700">Aamiin Ya Arhamar Rahimin 🤲</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- OFFICIAL CERTIFICATE FOR DEVINSON HAYDEN -->
+    <section class="bg-popGreen/20 comic-box rounded-3xl p-5 sm:p-6 text-center border-4 border-darkStroke relative">
+      <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-popYellow px-4 py-1 rounded-full border-2 border-darkStroke font-comic text-xs">
+        🏆 SERTIFIKAT RESMI KELUARGA 🏆
+      </div>
+      
+      <div class="bg-white border-2 border-darkStroke rounded-2xl p-5 mt-2 shadow-inner">
+        <p class="text-xs font-comic text-slate-500 uppercase tracking-widest">Dianugerahkan Kepada Jagoan Terbaik:</p>
+        <h3 class="font-comic text-2xl sm:text-3xl text-darkStroke text-popPink my-2">
+          DEVINSON HAYDEN
+        </h3>
+        <p class="text-xs sm:text-sm font-bold text-slate-700 max-w-md mx-auto">
+          Atas keberhasilan menuntaskan misi 11 tahun pertama dengan penuh keceriaan, kepintaran, dan akhlak yang baik! Diresmikan pada tanggal 18 September!
+        </p>
+
+        <div class="mt-4 pt-3 border-t-2 border-dashed border-darkStroke/20 flex items-center justify-around text-xs font-bold">
+          <div>
+            <span class="text-slate-400 block text-[10px]">TANGGAL ULANG TAHUN</span>
+            <span class="font-comic text-darkStroke">18 SEPTEMBER</span>
+          </div>
+          <div>
+            <span class="text-slate-400 block text-[10px]">STATUS TINGKAT</span>
+            <span class="font-comic text-popGreen">LEVEL 11 MASTER</span>
+          </div>
+          <div>
+            <span class="text-slate-400 block text-[10px]">DISAHKAN OLEH</span>
+            <span class="font-comic text-popPurple">OM & TANTE ❤️</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE STICKER CANVAS & WISH BOARD -->
+    <section class="bg-white comic-box rounded-3xl p-5 text-center">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-popYellow text-darkStroke comic-box-sm rounded-full text-xs font-comic mb-2">
+        <span>🎨</span> PAPAN TEMPEL STIKER
+      </div>
+      <h2 class="font-comic text-2xl sm:text-3xl text-darkStroke">
+        TEMPEL STIKER UNTUK DEVIN
+      </h2>
+      <p class="text-xs sm:text-sm font-chunky font-bold text-slate-600 max-w-sm mx-auto mb-4">
+        Pilih stiker emoji di bawah dan ketuk di area papan untuk menghias papan pesta Devinson Hayden!
+      </p>
+
+      <!-- Sticker Selector Bar -->
+      <div class="flex items-center justify-center gap-2 mb-3">
+        <button onclick="selectSticker('🚀')" class="sticker-btn text-2xl p-2 rounded-xl bg-amber-100 border-2 border-darkStroke hover:scale-110 active:scale-95 transition">🚀</button>
+        <button onclick="selectSticker('⭐')" class="sticker-btn text-2xl p-2 rounded-xl bg-pink-100 border-2 border-darkStroke hover:scale-110 active:scale-95 transition">⭐</button>
+        <button onclick="selectSticker('🎮')" class="sticker-btn text-2xl p-2 rounded-xl bg-sky-100 border-2 border-darkStroke hover:scale-110 active:scale-95 transition">🎮</button>
+        <button onclick="selectSticker('🍕')" class="sticker-btn text-2xl p-2 rounded-xl bg-emerald-100 border-2 border-darkStroke hover:scale-110 active:scale-95 transition">🍕</button>
+        <button onclick="selectSticker('💥')" class="sticker-btn text-2xl p-2 rounded-xl bg-purple-100 border-2 border-darkStroke hover:scale-110 active:scale-95 transition">💥</button>
+        <button onclick="clearStickers()" class="text-xs font-comic bg-rose-500 text-white px-2.5 py-2 rounded-xl border-2 border-darkStroke">CLEAR</button>
+      </div>
+
+      <!-- Sticker Tap Board -->
+      <div id="stickerBoard" onclick="stampSticker(event)" class="w-full h-56 bg-[#FFFBEA] border-4 border-dashed border-darkStroke rounded-2xl relative overflow-hidden cursor-crosshair select-none flex items-center justify-center">
+        <div id="stickerEmptyHint" class="text-xs font-comic text-darkStroke/40 pointer-events-none">
+          KETUK DI SINI UNTUK MENEMPELKAN STIKER BUAT DEVIN! 👆
+        </div>
+      </div>
+
+      <!-- Message sender from Om & Tante -->
+      <div class="mt-6 pt-5 border-t-2 border-darkStroke/15 text-left">
+        <label class="block font-comic text-xs text-darkStroke mb-1">
+          💌 PESAN & DOA UNTUK DEVINSON HAYDEN:
+        </label>
+        <div class="flex gap-2">
+          <input id="noteInput" type="text" placeholder="Tulis doa atau kata semangat buat Devin..." class="flex-1 bg-slate-50 border-2 border-darkStroke rounded-xl px-3 py-2 text-xs font-bold text-darkStroke focus:outline-none focus:ring-2 focus:ring-popCyan">
+          <button onclick="postFamilyNote()" class="comic-btn bg-popPink text-white px-4 py-2 rounded-xl font-comic text-xs">
+            KIRIM
+          </button>
+        </div>
+
+        <div id="familyNotesList" class="mt-3 space-y-2">
+          <div class="bg-popYellow/40 p-2.5 rounded-xl border-2 border-darkStroke text-xs font-bold text-darkStroke">
+            <span class="font-comic text-popPurple">Tante & Om:</span> "Selamat ulang tahun ke-11 Devinson Hayden! Semoga Devin jadi anak sholeh yang hebat, makin pintar, dan selalu sayang keluarga! ⚽✨"
+          </div>
+          <div class="bg-sky-100 p-2.5 rounded-xl border-2 border-darkStroke text-xs font-bold text-darkStroke">
+            <span class="font-comic text-popCyan">Keluarga Besar:</span> "Happy 11th Birthday Hayden! Selamat naik level, semoga makin jago dalam segala hal yang Devin sukai! 🎉🚀"
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER WITH RETRO BADGE -->
+    <footer class="text-center pt-6 space-y-2">
+      <div class="inline-block bg-darkStroke text-popYellow font-comic text-xs px-4 py-1 rounded-xl">
+        🎉 DEVINSON HAYDEN • LEVEL 11 SPECIAL QUEST • 18 SEPTEMBER 🎂
+      </div>
+      <p class="text-xs font-bold text-slate-500">
+        Dibuat penuh kasih sayang untuk ananda Devinson Hayden tersayang! ❤️
+      </p>
+    </footer>
+
+  </main>
+
+  <script>
+    /* ==========================================================
+       SYNTHESIZED WEB AUDIO API (NO EXTERNAL MP3 DEPENDENCIES)
+       ========================================================== */
+    let audioContext = null;
+    let soundEnabled = true;
+
+    function initAudio() {
+      if (!audioContext) {
+        audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      if (audioContext.state === 'suspended') {
+        audioContext.resume();
+      }
+    }
+
+    // Gentle vibration for smartphones that support the Vibration API
+    function triggerHaptic(duration = 20) {
+      if (navigator && navigator.vibrate) {
+        try {
+          navigator.vibrate(duration);
+        } catch (e) {
+          // ignore if disabled
+        }
+      }
+    }
+
+    function toggleAudio() {
+      soundEnabled = !soundEnabled;
+      const label = document.getElementById('soundLabel');
+      const icon = document.getElementById('soundIcon');
+      if (soundEnabled) {
+        label.textContent = 'SFX: ON';
+        icon.textContent = '🔊';
+        playPopSound();
+      } else {
+        label.textContent = 'SFX: OFF';
+        icon.textContent = '🔇';
+      }
+    }
+
+    // Play synthesized notes
+    function playTone(freq, type = 'sine', duration = 0.15, gain = 0.1) {
+      if (!soundEnabled) return;
+      initAudio();
+      try {
+        const osc = audioContext.createOscillator();
+        const gainNode = audioContext.createGain();
+
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, audioContext.currentTime);
+
+        gainNode.gain.setValueAtTime(gain, audioContext.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.0001, audioContext.currentTime + duration);
+
+        osc.connect(gainNode);
+        gainNode.connect(audioContext.destination);
+
+        osc.start();
+        osc.stop(audioContext.currentTime + duration);
+      } catch (err) {
+        // Fallback gracefully
+      }
+    }
+
+    // Sound FX Library
+    function playPopSound() {
+      triggerHaptic(15);
+      playTone(520, 'sine', 0.08, 0.15);
+    }
+
+    function playBlowSound() {
+      triggerHaptic(30);
+      playTone(220, 'triangle', 0.25, 0.2);
+    }
+
+    function playLevelUpChime() {
+      triggerHaptic(50);
+      const notes = [261.6, 329.6, 392.0, 523.3, 659.3, 783.9];
+      notes.forEach((freq, idx) => {
+        setTimeout(() => {
+          playTone(freq, 'triangle', 0.2, 0.12);
+        }, idx * 75);
+      });
+    }
+
+    function playCelebrationMelody() {
+      triggerHaptic(60);
+      const melody = [
+        { f: 392, d: 150 }, { f: 392, d: 150 }, { f: 440, d: 300 },
+        { f: 392, d: 300 }, { f: 523, d: 300 }, { f: 493, d: 600 }
+      ];
+      let delay = 0;
+      melody.forEach(item => {
+        setTimeout(() => playTone(item.f, 'square', item.d / 1000, 0.07), delay);
+        delay += item.d;
+      });
+    }
+
+    function popBigConfetti(withSound = true) {
+      if (withSound) {
+        playCelebrationMelody();
+      }
+      confetti({
+        particleCount: 80,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ['#FFE600', '#FF5C93', '#00E5FF', '#23D160', '#7B2CBF']
+      });
+    }
+
+    /* ==========================================================
+       11 BIRTHDAY CANDLES IMPLEMENTATION
+       ========================================================== */
+    const TOTAL_CANDLES = 11;
+    let extinguishedCandles = 0;
+
+    function renderCandles() {
+      const container = document.getElementById('candleWickContainer');
+      container.innerHTML = '';
+      extinguishedCandles = 0;
+      updateCandleStatusText();
+
+      for (let i = 1; i <= TOTAL_CANDLES; i++) {
+        const candleWrapper = document.createElement('div');
+        candleWrapper.className = 'flex flex-col items-center cursor-pointer select-none';
+        candleWrapper.onclick = () => blowSingleCandle(i);
+
+        const isEven = i % 2 === 0;
+        const candleColor = isEven ? 'bg-popCyan' : 'bg-popYellow';
+
+        candleWrapper.innerHTML = `
+          <div id="flame-${i}" class="flame-active w-3 h-5 mb-0.5 rounded-full bg-gradient-to-t from-orange-500 via-yellow-400 to-white shadow-sm"></div>
+          <div class="w-2.5 sm:w-3.5 h-8 sm:h-10 ${candleColor} rounded-t-sm border-2 border-darkStroke shadow-sm flex items-center justify-center">
+            <span class="text-[8px] font-comic text-darkStroke font-black">${i}</span>
+          </div>
+        `;
+        container.appendChild(candleWrapper);
+      }
+    }
+
+    function blowSingleCandle(idx) {
+      const flame = document.getElementById(`flame-${idx}`);
+      if (flame && !flame.classList.contains('opacity-0')) {
+        flame.classList.remove('flame-active');
+        flame.classList.add('opacity-0', 'transition-all', 'duration-300', 'scale-50');
+        playBlowSound();
+        extinguishedCandles++;
+        updateCandleStatusText();
+
+        if (extinguishedCandles === TOTAL_CANDLES) {
+          triggerAllCandlesBlown();
+        }
+      }
+    }
+
+    function blowAllCandles() {
+      for (let i = 1; i <= TOTAL_CANDLES; i++) {
+        const flame = document.getElementById(`flame-${i}`);
+        if (flame) {
+          flame.classList.remove('flame-active');
+          flame.classList.add('opacity-0', 'scale-50');
+        }
+      }
+      playBlowSound();
+      extinguishedCandles = TOTAL_CANDLES;
+      updateCandleStatusText();
+      triggerAllCandlesBlown();
+    }
+
+    function relightCandles() {
+      playTone(440, 'triangle', 0.15);
+      renderCandles();
+    }
+
+    function updateCandleStatusText() {
+      const status = document.getElementById('candleStatus');
+      const left = TOTAL_CANDLES - extinguishedCandles;
+      if (left === 0) {
+        status.innerHTML = '🎉 SEMUA 11 LILIN PADAM! WISH TERKABUL! ✨';
+        status.className = 'mt-3 font-comic text-sm text-popPink font-black animate-bounce';
+      } else {
+        status.innerHTML = `${left} LILIN MASIH NYALA • SENTUH LILINNYA!`;
+        status.className = 'mt-3 font-comic text-xs text-popPurple';
+      }
+    }
+
+    function triggerAllCandlesBlown() {
+      setTimeout(() => {
+        playCelebrationMelody();
+        confetti({
+          particleCount: 130,
+          spread: 90,
+          origin: { y: 0.5 },
+          colors: ['#FFE600', '#FF5C93', '#00E5FF', '#23D160']
+        });
+      }, 200);
+    }
+
+    /* ==========================================================
+       BALLOON POPPING GAME
+       ========================================================== */
+    let gameActive = false;
+    let gameScore = 0;
+    let gameTimer = 20;
+    let gameInterval = null;
+    let balloonSpawnInterval = null;
+
+    function startBalloonGame() {
+      initAudio();
+      gameActive = true;
+      gameScore = 0;
+      gameTimer = 20;
+      document.getElementById('gameScoreText').textContent = '0 PTS';
+      document.getElementById('gameTimerText').textContent = 'Waktu: 20s';
+      document.getElementById('gameOverlay').classList.add('hidden');
+      document.getElementById('balloonArea').innerHTML = '';
+
+      playLevelUpChime();
+
+      // Countdown Timer
+      clearInterval(gameInterval);
+      gameInterval = setInterval(() => {
+        gameTimer--;
+        document.getElementById('gameTimerText').textContent = `Waktu: ${gameTimer}s`;
+        if (gameTimer <= 0) {
+          endBalloonGame();
+        }
+      }, 1000);
+
+      // Spawn Balloons continuously
+      clearInterval(balloonSpawnInterval);
+      balloonSpawnInterval = setInterval(() => {
+        if (gameActive) spawnBalloon();
+      }, 650);
+
+      // Spawn initial set
+      for (let i = 0; i < 3; i++) spawnBalloon();
+    }
+
+    function spawnBalloon() {
+      const area = document.getElementById('balloonArea');
+      if (!area || !gameActive) return;
+
+      const balloon = document.createElement('div');
+      const emojis = ['🎈', '🎁', '⭐', '🎈', '🎉'];
+      const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+
+      const isGolden = Math.random() < 0.2; // 20% bonus golden balloon
+      const pointValue = isGolden ? 20 : 10;
+
+      balloon.className = 'absolute text-4xl select-none cursor-pointer transition-transform active:scale-125';
+      balloon.innerHTML = isGolden ? '⭐' : randomEmoji;
+
+      const areaWidth = area.clientWidth - 50;
+      const randomLeft = Math.max(10, Math.floor(Math.random() * areaWidth));
+      balloon.style.left = `${randomLeft}px`;
+      balloon.style.bottom = '-40px';
+
+      // Tap event for desktop & mobile
+      const onPop = (e) => {
+        e.stopPropagation();
+        if (!gameActive) return;
+        gameScore += pointValue;
+        document.getElementById('gameScoreText').textContent = `${gameScore} PTS`;
+        playPopSound();
+
+        // Little floating popup text
+        showFloatingScore(balloon.offsetLeft, balloon.offsetTop, `+${pointValue}`);
+        balloon.remove();
+
+        if (gameScore >= 110) {
+          endBalloonGame(true);
+        }
+      };
+
+      balloon.addEventListener('pointerdown', onPop);
+      area.appendChild(balloon);
+
+      // Float upwards
+      let currentBottom = -40;
+      const floatSpeed = 2 + Math.random() * 2.5;
+      const floatTimer = setInterval(() => {
+        if (!gameActive) {
+          clearInterval(floatTimer);
+          balloon.remove();
+          return;
+        }
+        currentBottom += floatSpeed;
+        balloon.style.bottom = `${currentBottom}px`;
+
+        if (currentBottom > area.clientHeight + 20) {
+          clearInterval(floatTimer);
+          balloon.remove();
+        }
+      }, 25);
+    }
+
+    function showFloatingScore(x, y, text) {
+      const area = document.getElementById('balloonArea');
+      const floater = document.createElement('div');
+      floater.className = 'absolute font-comic text-sm text-popPink font-black pointer-events-none transition-all duration-500';
+      floater.style.left = `${x}px`;
+      floater.style.top = `${y}px`;
+      floater.textContent = text;
+      area.appendChild(floater);
+
+      setTimeout(() => {
+        floater.style.transform = 'translateY(-25px)';
+        floater.style.opacity = '0';
+      }, 50);
+
+      setTimeout(() => floater.remove(), 600);
+    }
+
+    function endBalloonGame(won = false) {
+      gameActive = false;
+      clearInterval(gameInterval);
+      clearInterval(balloonSpawnInterval);
+
+      const overlay = document.getElementById('gameOverlay');
+      overlay.classList.remove('hidden');
+
+      if (won || gameScore >= 110) {
+        overlay.innerHTML = `
+          <div class="text-6xl animate-bounce mb-1">🏆</div>
+          <h3 class="font-comic text-xl text-darkStroke">MISI SELESAI JUARA!</h3>
+          <p class="text-xs font-bold text-slate-700 max-w-xs mt-1 mb-3">
+            Hebat banget! Berhasil kumpulin ${gameScore} PTS buat ultah ke-11!
+          </p>
+          <button onclick="startBalloonGame()" class="comic-btn bg-popYellow text-darkStroke px-5 py-2.5 rounded-xl font-comic text-sm">
+            MAIN LAGI 🔄
+          </button>
+        `;
+        playCelebrationMelody();
+        confetti({ particleCount: 100, spread: 80, origin: { y: 0.6 } });
+      } else {
+        overlay.innerHTML = `
+          <div class="text-5xl mb-1">⏱️</div>
+          <h3 class="font-comic text-lg text-darkStroke">WAKTU HABIS!</h3>
+          <p class="text-xs font-bold text-slate-600 max-w-xs mt-1 mb-3">
+            Skor kamu: ${gameScore} PTS. Ayo coba lagi pasti bisa dapet 110 PTS!
+          </p>
+          <button onclick="startBalloonGame()" class="comic-btn bg-popCyan text-darkStroke px-5 py-2.5 rounded-xl font-comic text-sm">
+            COBA LAGI 🚀
+          </button>
+        `;
+        playTone(200, 'sawtooth', 0.2);
+      }
+    }
+
+    /* ==========================================================
+       GACHA BOX REWARDS
+       ========================================================== */
+    const gachaPrizes = {
+      1: {
+        icon: "👑",
+        title: "GELAR JUARA KE-11 DEVIN",
+        desc: "Devinson Hayden dianugerahi Title: 'Jagoan Paling Berbakti & Mandiri 2026'!"
+      },
+      2: {
+        icon: "🍦",
+        title: "KUPON JAJAN ES KRIM DEVIN",
+        desc: "Kupon spesial buat Devin: Bisa ditukar ke Om/Tante untuk jajan es krim favorit Devin kapan saja!"
+      },
+      3: {
+        icon: "🎮",
+        title: "BUFF SPESIAL LEVEL 11",
+        desc: "Didoakan selalu sukses, juara kelas, dan selalu dalam lindungan Allah SWT di setiap langkah Devin!"
+      }
+    };
+
+    function openGacha(id) {
+      const prize = gachaPrizes[id];
+      const icon = document.getElementById(`gachaIcon${id}`);
+      const label = document.getElementById(`gachaLabel${id}`);
+      const result = document.getElementById(`gachaResult${id}`);
+
+      playLevelUpChime();
+      confetti({ particleCount: 50, spread: 60, origin: { y: 0.65 } });
+
+      icon.textContent = prize.icon;
+      label.textContent = prize.title;
+      result.textContent = prize.desc;
+      result.classList.remove('hidden');
+    }
+
+    /* Flip RPG Prayer Card */
+    function flipPrayerCard(cardElement) {
+      cardElement.classList.toggle('is-flipped');
+      playTone(330, 'sine', 0.1);
+      triggerHaptic(20);
+    }
+
+    /* ==========================================================
+       STICKER BOARD & NOTES
+       ========================================================== */
+    let currentSelectedSticker = '🚀';
+
+    function selectSticker(emoji) {
+      currentSelectedSticker = emoji;
+      playPopSound();
+    }
+
+    function stampSticker(e) {
+      const board = document.getElementById('stickerBoard');
+      const hint = document.getElementById('stickerEmptyHint');
+      if (hint) hint.style.display = 'none';
+
+      const rect = board.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      const sticker = document.createElement('div');
+      sticker.className = 'absolute text-3xl select-none pointer-events-none transform -translate-x-1/2 -translate-y-1/2';
+      
+      // Random tilt for comic sticker feel
+      const tilt = (Math.random() * 30) - 15;
+      sticker.style.left = `${x}px`;
+      sticker.style.top = `${y}px`;
+      sticker.style.transform = `translate(-50%, -50%) rotate(${tilt}deg)`;
+      sticker.textContent = currentSelectedSticker;
+
+      board.appendChild(sticker);
+      playPopSound();
+      triggerHaptic(15);
+    }
+
+    function clearStickers() {
+      const board = document.getElementById('stickerBoard');
+      board.innerHTML = '<div id="stickerEmptyHint" class="text-xs font-comic text-darkStroke/40 pointer-events-none">KETUK DI SINI UNTUK MENEMPELKAN STIKER! 👆</div>';
+      playTone(180, 'sine', 0.1);
+    }
+
+    function postFamilyNote() {
+      const input = document.getElementById('noteInput');
+      const text = input.value.trim();
+      if (!text) return;
+
+      const list = document.getElementById('familyNotesList');
+      const newNote = document.createElement('div');
+      newNote.className = 'bg-white p-2.5 rounded-xl border-2 border-darkStroke text-xs font-bold text-darkStroke flex items-start justify-between gap-2';
+      newNote.innerHTML = `
+        <div>
+          <span class="font-comic text-popGreen">Doa Baru:</span> "${text}"
+        </div>
+        <span class="text-sm">✨</span>
+      `;
+      list.prepend(newNote);
+      input.value = '';
+      playLevelUpChime();
+      confetti({ particleCount: 35, spread: 50 });
+    }
+
+    // Auto load on start
+    window.addEventListener('load', () => {
+      renderCandles();
+    });
+  </script>
+</body>
+</html>
